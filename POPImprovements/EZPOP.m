@@ -82,12 +82,20 @@
 + (POPBasicAnimation*)basicWithProperty:(NSString*)property from:(id)from to:(id)to delay:(CFTimeInterval)delay duration:(CFTimeInterval)duration timing:(CAMediaTimingFunction*)function completion:(void(^)(POPAnimation*,BOOL))completion
 {
     POPBasicAnimation *animation = [POPBasicAnimation animationWithPropertyNamed:property];
-    animation.fromValue = from;
-    animation.toValue = to;
+    if (from != nil){
+        animation.fromValue = from;
+    }
+    if (to != nil){
+        animation.toValue = to;
+    }
     animation.beginTime = CACurrentMediaTime()+delay;
     animation.duration = duration;
-    animation.timingFunction = function;
-    animation.completionBlock = completion;
+    if (function != nil){
+        animation.timingFunction = function;
+    }
+    if (completion != nil){
+        animation.completionBlock = completion;
+    }
     
     return animation;
 }
@@ -95,8 +103,12 @@
 + (POPSpringAnimation*)springWithPropery:(NSString*)property from:(id)from to:(id)to delay:(CFTimeInterval)delay params:(EZPOPSpringParams*)params completion:(void(^)(POPAnimation*,BOOL))completion
 {
     POPSpringAnimation *animation = [POPSpringAnimation animationWithPropertyNamed:property];
-    animation.fromValue = from;
-    animation.toValue = to;
+    if (from != nil){
+        animation.fromValue = from;
+    }
+    if (to != nil){
+        animation.toValue = to;
+    }
     animation.beginTime = CACurrentMediaTime()+delay;
     if (params.springSpeed != nil){
         animation.springSpeed = params.springSpeed.floatValue;
@@ -116,7 +128,9 @@
     if (params.velocity != nil){
         animation.velocity = params.velocity;
     }
-    animation.completionBlock = completion;
+    if (completion != nil){
+        animation.completionBlock = completion;
+    }
     return animation;
 }
 

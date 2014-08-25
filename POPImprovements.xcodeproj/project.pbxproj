@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9103E2AA19AB870800F9FE9A /* pigeon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9103E2A919AB870800F9FE9A /* pigeon.jpg */; };
 		A84BCE59199EA377009C8CF5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A84BCE58199EA377009C8CF5 /* Foundation.framework */; };
 		A84BCE5B199EA377009C8CF5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A84BCE5A199EA377009C8CF5 /* CoreGraphics.framework */; };
 		A84BCE5D199EA377009C8CF5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A84BCE5C199EA377009C8CF5 /* UIKit.framework */; };
@@ -65,6 +66,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9103E2A919AB870800F9FE9A /* pigeon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pigeon.jpg; sourceTree = "<group>"; };
 		A84BCE55199EA377009C8CF5 /* POPImprovements.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = POPImprovements.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A84BCE58199EA377009C8CF5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A84BCE5A199EA377009C8CF5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -149,6 +151,7 @@
 		A84BCE5E199EA377009C8CF5 /* POPImprovements */ = {
 			isa = PBXGroup;
 			children = (
+				9103E2A919AB870800F9FE9A /* pigeon.jpg */,
 				A84BCE67199EA377009C8CF5 /* AppDelegate.h */,
 				A84BCE68199EA377009C8CF5 /* AppDelegate.m */,
 				A84BCE6A199EA377009C8CF5 /* Main_iPhone.storyboard */,
@@ -332,6 +335,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9103E2AA19AB870800F9FE9A /* pigeon.jpg in Resources */,
 				A84BCE6F199EA377009C8CF5 /* Main_iPad.storyboard in Resources */,
 				A84BCE74199EA377009C8CF5 /* Images.xcassets in Resources */,
 				A84BCE6C199EA377009C8CF5 /* Main_iPhone.storyboard in Resources */,
