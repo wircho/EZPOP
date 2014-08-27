@@ -12,6 +12,14 @@
 
 #define ANIMATION_KEY_FORMAT @"%@__%p"
 
+//struct EZPOPTimingFunctionControlPoints
+//{
+//    float x1;
+//    float x2;
+//    float y1;
+//    float y2;
+//};
+
 @interface EZPOPWeakObject : NSObject
 
 @property (nonatomic,weak) id object;
@@ -31,7 +39,65 @@
 
 @end
 
+@interface EZPOPBasicAnimation ()
 
+@property (nonatomic,assign) float* controlPoints;
+
+@end
+
+@implementation EZPOPBasicAnimation
+
+@synthesize timingFunction = _timingFunction;
+
+//+ (EZPOPBasicAnimation *)animationWithPropertyNamed:(NSString *)property
+//{
+//    if ([property isEqualToString:kPOPLayerRotationX]){
+//        EZPOPBasicAnimation *animation = [EZPOPBasicAnimation animationWithBlock:^BOOL(id target, POPCustomAnimation *animation) {
+//            EZPOPBasicAnimation *basicAnimation = (EZPOPBasicAnimation*)animation;
+//            CGFloat epsilon = MIN(basicAnimation.currentTime,basicAnimation.duration)/basicAnimation.duration;
+//            CGFloat actualEpsilon = epsilon;//TODO: FIX THIS
+//            CGFloat currentValue = [basicAnimation.fromValue floatValue]*(1-actualEpsilon) + [basicAnimation.toValue floatValue]*actualEpsilon;
+//        }];
+//    }else if ([property isEqualToString:kPOPLayerRotationY]){
+//        
+//    }else{
+//        NSLog(@"Not supported yet!");
+//        abort();
+//        return nil;
+//    }
+//}
+
+- (CAMediaTimingFunction *)timingFunction
+{
+    if (_timingFunction==nil){
+        _timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+        [self saveControlPoints];
+    }
+    return _timingFunction;
+}
+
+- (void)setTimingFunction:(CAMediaTimingFunction *)timingFunction
+{
+    _timingFunction = timingFunction;
+    [self saveControlPoints];
+}
+
+- (void)saveControlPoints
+{
+    float control1[2] = {0.0f,0.0f};
+    float control2[2] = {0.0f,0.0f};
+    [self.timingFunction getControlPointAtIndex:1 values:control1];
+    [self.timingFunction getControlPointAtIndex:2 values:control2];
+    
+    self.controlPoints = malloc(sizeof(float)*4);
+    self.controlPoints[0] = control1[0];
+    self.controlPoints[1] = control1[1];
+    self.controlPoints[2] = control2[0];
+    self.controlPoints[3] = control2[1];
+    
+}
+
+@end
 
 @implementation EZPOPTransformView
 
@@ -41,6 +107,8 @@
 }
 
 @end
+
+
 
 @implementation EZPOPSpringParams
 
@@ -152,7 +220,11 @@
         [weakObjects addObject:[EZPOPWeakObject object:object]];
         
         [object pop_addAnimation:animation forKey:[NSString stringWithFormat:ANIMATION_KEY_FORMAT,key,(void*)animation]];
+        void(^oldCompletion)(POPAnimation*,BOOL) = animation.completionBlock;
         [animation setCompletionBlock:^(POPAnimation *anim, BOOL completed) {
+            if (oldCompletion != nil){
+                oldCompletion(anim,completed);
+            }
             [self handleFinishedAnimation:anim completed:completed];
         }];
     }

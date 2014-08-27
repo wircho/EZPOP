@@ -14,6 +14,8 @@
 
 #define EZPOPSpring(S,B,F,M,T,V) [EZPOPSpringParams speed:S bounciness:B friction:F mass:M tension:T velocity:V]
 
+#define EZPOPDeterminant(T)
+
 @interface EZPOPSpringParams : NSObject
 
 + (instancetype)speed:(NSNumber*)springSpeed bounciness:(NSNumber*)springBounciness friction:(NSNumber*)dynamicsFriction mass:(NSNumber*)dynamicsMass tension:(NSNumber*)dynamicsTension velocity:(NSNumber*)velocity;
@@ -28,6 +30,18 @@
 @end
 
 @interface EZPOPTransformView : UIView
+
+@end
+
+@interface EZPOPBasicAnimation : POPCustomAnimation
+
+@property (nonatomic,copy) id fromValue;
+@property (nonatomic,copy) id toValue;
+@property (nonatomic,assign) CFTimeInterval duration;
+@property (nonatomic,strong) CAMediaTimingFunction *timingFunction;
+
++ (EZPOPBasicAnimation *)animationWithPropertyNamed:(NSString*)property;
+
 
 @end
 
