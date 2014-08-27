@@ -1,4 +1,0 @@
-
-[submodule "EZPOPDemo/lib/pop"]
-	path = EZPOPDemo/lib/pop
-	url = https://github.com/facebook/pop
