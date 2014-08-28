@@ -126,6 +126,44 @@
 
 @end
 
+//@implementation EZPOPAnchoredView
+//
+//- (void)didMoveToSuperview
+//{
+//    [super didMoveToSuperview];
+//    
+//    [self updateLayer];
+//}
+//
+//- (void)updateLayer
+//{
+//    self.layer.anchorPoint = CGPointMake(0.5,0.5);
+//   
+//}
+//
+//@end
+//
+//@implementation EZPOPLeftAnchoredView
+//
+//- (void)updateLayer
+//{
+//    self.layer.anchorPoint = CGPointMake(0,0.5);
+//    [self setFrame:CGRectMake(self.frame.origin.x-self.frame.size.width/2.0f,self.frame.origin.y,self.frame.size.width, self.frame.size.height)];
+//}
+//
+//@end
+//
+//@implementation EZPOPRightAnchoredView
+//
+//- (void)updateLayer
+//{
+//    self.layer.anchorPoint = CGPointMake(1,0.5);
+//    [self setFrame:CGRectMake(self.frame.origin.x+self.frame.size.width/2.0f,self.frame.origin.y,self.frame.size.width, self.frame.size.height)];
+//}
+//
+//
+//@end
+
 @interface EZPOP ()
 
 @property (nonatomic,strong) NSMutableDictionary *animationArrays;
@@ -231,6 +269,7 @@
     
     instance.animationArrays[key] = animations;
     instance.animationObjectArrays[key] = weakObjects;
+    instance.animationCompletionBooleanArrays[key] = completionBooleans;
     if (completion==nil){
         instance.animationCompletions[key] = [NSNull null];
     }else{
@@ -272,19 +311,19 @@
             
             BOOL allCompleted = YES;
             for (NSNumber *boolean in booleans){
-                if (!boolean.boolValue){
+                if ((NSNull*)boolean == [NSNull null]){
                     allCompleted = NO;
                 }
             }
             
             if (allCompleted){
                 void(^completion)(NSArray*,NSArray*,POPAnimation*) = instance.animationCompletions[key];
-                if (completion != nil){
-                    completion(animations,booleans,anim);
+                if (completion != nil && (NSNull*)completion != [NSNull null]){
                     [instance.animationArrays removeObjectForKey:key];
                     [instance.animationCompletionBooleanArrays removeObjectForKey:key];
                     [instance.animationCompletions removeObjectForKey:key];
                     [instance.animationObjectArrays removeObjectForKey:key];
+                    completion(animations,booleans,anim);
                 }
             }
             

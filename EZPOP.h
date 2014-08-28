@@ -45,6 +45,18 @@
 
 @end
 
+//@interface EZPOPAnchoredView : UIView
+//
+//@end
+//
+//@interface EZPOPLeftAnchoredView : EZPOPAnchoredView
+//
+//@end
+//
+//@interface EZPOPRightAnchoredView : EZPOPAnchoredView
+//
+//@end
+
 @interface EZPOP : NSObject
 
 + (EZPOP*)instance;
