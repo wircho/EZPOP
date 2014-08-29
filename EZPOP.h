@@ -69,4 +69,6 @@
 
 + (void)removeAnimationsForKey:(NSString*)key;
 
++ (void)performInstantly:(void(^)(void))block;
+
 @end

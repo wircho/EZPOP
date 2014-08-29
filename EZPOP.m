@@ -368,4 +368,12 @@
     return _animationObjectArrays;
 }
 
++ (void)performInstantly:(void(^)(void))block
+{
+    [CATransaction begin];
+    [CATransaction setValue: (id) kCFBooleanTrue forKey: kCATransactionDisableActions];
+    block();
+    [CATransaction commit];
+}
+
 @end
