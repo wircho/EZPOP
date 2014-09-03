@@ -175,6 +175,11 @@
 
 @implementation EZPOP
 
++ (NSArray*)animationArrayForKey:(NSString*)key
+{
+    return [self instance].animationArrays[key];
+}
+
 + (EZPOP*)instance
 {
     static EZPOP *instance;

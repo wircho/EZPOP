@@ -61,6 +61,8 @@
 
 + (EZPOP*)instance;
 
++ (NSArray*)animationArrayForKey:(NSString*)key;
+
 + (POPBasicAnimation*)basicWithProperty:(NSString*)property from:(id)from to:(id)to delay:(CFTimeInterval)delay duration:(CFTimeInterval)duration timing:(CAMediaTimingFunction*)function completion:(void(^)(POPAnimation*,BOOL))completion;
 
 + (POPSpringAnimation*)springWithPropery:(NSString*)property from:(id)from to:(id)to delay:(CFTimeInterval)delay params:(EZPOPSpringParams*)params completion:(void(^)(POPAnimation*,BOOL))completion;
