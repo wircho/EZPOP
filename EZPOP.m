@@ -106,6 +106,18 @@
     return [CATransformLayer class];
 }
 
+-(BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event {
+    if (![super pointInside:point withEvent:event]){
+        return NO;
+    }
+    for (UIView *view in self.subviews) {
+        if (!view.hidden && view.alpha > 0 && view.userInteractionEnabled && [view pointInside:[self convertPoint:point toView:view] withEvent:event]){
+            return YES;
+        }
+    }
+    return NO;
+}
+
 @end
 
 
