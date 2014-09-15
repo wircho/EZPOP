@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9103E2AA19AB870800F9FE9A /* pigeon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9103E2A919AB870800F9FE9A /* pigeon.jpg */; };
 		915DA70219AE418500777680 /* EZPOP.m in Sources */ = {isa = PBXBuildFile; fileRef = 915DA70119AE418500777680 /* EZPOP.m */; };
+		91F53ED419C365E600DF11F8 /* NANOPOP.m in Sources */ = {isa = PBXBuildFile; fileRef = 91F53ED319C365E600DF11F8 /* NANOPOP.m */; };
 		A84BCE59199EA377009C8CF5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A84BCE58199EA377009C8CF5 /* Foundation.framework */; };
 		A84BCE5B199EA377009C8CF5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A84BCE5A199EA377009C8CF5 /* CoreGraphics.framework */; };
 		A84BCE5D199EA377009C8CF5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A84BCE5C199EA377009C8CF5 /* UIKit.framework */; };
@@ -69,6 +70,8 @@
 		9103E2A919AB870800F9FE9A /* pigeon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pigeon.jpg; sourceTree = "<group>"; };
 		915DA70019AE418500777680 /* EZPOP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZPOP.h; sourceTree = "<group>"; };
 		915DA70119AE418500777680 /* EZPOP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EZPOP.m; sourceTree = "<group>"; };
+		91F53ED219C365E600DF11F8 /* NANOPOP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NANOPOP.h; path = ../../NANOPOP/NANOPOP.h; sourceTree = "<group>"; };
+		91F53ED319C365E600DF11F8 /* NANOPOP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NANOPOP.m; path = ../../NANOPOP/NANOPOP.m; sourceTree = "<group>"; };
 		A84BCE55199EA377009C8CF5 /* POPImprovements.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = POPImprovements.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A84BCE58199EA377009C8CF5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A84BCE5A199EA377009C8CF5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -122,6 +125,8 @@
 			children = (
 				915DA70019AE418500777680 /* EZPOP.h */,
 				915DA70119AE418500777680 /* EZPOP.m */,
+				91F53ED219C365E600DF11F8 /* NANOPOP.h */,
+				91F53ED319C365E600DF11F8 /* NANOPOP.m */,
 				A84BCE90199EA425009C8CF5 /* lib */,
 				A84BCE5E199EA377009C8CF5 /* POPImprovements */,
 				A84BCE80199EA377009C8CF5 /* POPImprovementsTests */,
@@ -359,6 +364,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				915DA70219AE418500777680 /* EZPOP.m in Sources */,
+				91F53ED419C365E600DF11F8 /* NANOPOP.m in Sources */,
 				A84BCE72199EA377009C8CF5 /* ViewController.m in Sources */,
 				A84BCE69199EA377009C8CF5 /* AppDelegate.m in Sources */,
 				A84BCE65199EA377009C8CF5 /* main.m in Sources */,

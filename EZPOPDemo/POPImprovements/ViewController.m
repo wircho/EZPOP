@@ -33,6 +33,10 @@
     EZPOPTransformView *redContainer = [[EZPOPTransformView alloc] init];
     [redContainer.layer setAnchorPoint:CGPointMake(0.25,0.5)];
     
+    
+    
+    
+    
     [redContainer setFrame:CGRectMake(50,40,120,100)];
     [redContainer setAutoresizingMask:UIViewAutoresizingFlexibleBottomMargin|UIViewAutoresizingFlexibleRightMargin];
     
