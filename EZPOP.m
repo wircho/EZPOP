@@ -259,7 +259,14 @@
 
 + (void)objects:(NSArray*)objects addAnimations:(NSArray*)animations completion:(void(^)(NSArray*,NSArray*,POPAnimation*))completion forKey:(NSString*)key
 {
-    NSAssert(objects.count>0 && animations.count==objects.count,@"Please provide the same number of animations as objects!");
+    NSAssert(animations.count==objects.count,@"Please provide the same number of animations as objects!");
+    
+    if (objects.count==0) {
+        if (completion != nil) {
+            completion(@[],@[],nil);
+        }
+        return;
+    }
     
     EZPOP *instance = [self instance];
     
